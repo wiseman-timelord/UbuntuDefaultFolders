@@ -24,9 +24,10 @@ UbuntuDefaultFolders is a graphical tool that allows users to view and modify th
 - Run the launcher `./UbuntuDefaultFolders-Launcher.sh`.
 - Select option 1 to install requirements (first time only) (installs to ./venv).
 - Select option 2 to run the program (it will use the venv).
-- Edit folder paths as needed in the browser window that pops up, and click "Apply Changes" (revert via "Apply Defaults").
+- Edit folder paths as needed in the browser window that pops up, and click "Apply Changes".
 - Restart your system for changes to take effect.
 
-
+## Notation
+- If you, are going to swap around drives or mess things up or want to revert changes, then you have the option to `Apply Defaults`.
 
 
