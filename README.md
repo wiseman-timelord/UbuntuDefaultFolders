@@ -12,8 +12,8 @@ UbuntuDefaultFolders is a graphical tool that allows users to view and modify th
 - Runs with user permissions (no sudo required) while maintaining system file security
 
 ### Preview
-- Currently looking like this...
-[UbuntuDefaultFolders Interface](media/UbuntuDefaultFolders_Screenshot.png)
+![UbuntuDefaultFolders Interface](media/UbuntuDefaultFolders_Screenshot.png)
+
 
 ## Requirements 
 - I used Ubuntu 24.10 - if using other version, ensure the config file is at `~/.config/user-dirs.dirs`.
