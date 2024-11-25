@@ -4,6 +4,18 @@ import gradio as gr
 # Path to the user directories config file
 USER_DIRS_FILE = os.path.expanduser("~/.config/user-dirs.dirs")
 
+# Default directory configurations
+DEFAULT_DIRS = {
+    "XDG_DESKTOP_DIR": "$HOME/Desktop",
+    "XDG_DOWNLOAD_DIR": "$HOME/Downloads",
+    "XDG_TEMPLATES_DIR": "$HOME/Templates",
+    "XDG_PUBLICSHARE_DIR": "$HOME/Public",
+    "XDG_DOCUMENTS_DIR": "$HOME/Documents",
+    "XDG_MUSIC_DIR": "$HOME/Music",
+    "XDG_PICTURES_DIR": "$HOME/Pictures",
+    "XDG_VIDEOS_DIR": "$HOME/Videos"
+}
+
 # Read the current folder configuration
 def read_user_dirs():
     if not os.path.exists(USER_DIRS_FILE):
@@ -47,6 +59,16 @@ def apply_changes(*values, keys):
     updated_dirs = dict(zip(keys, values))
     return save_user_dirs(updated_dirs)
 
+# Function to apply default values
+def apply_defaults(textboxes):
+    """
+    Apply default values to all textboxes and save changes
+    textboxes: dictionary of Gradio textbox components
+    """
+    # Update the textboxes with default values
+    save_user_dirs(DEFAULT_DIRS)
+    return [DEFAULT_DIRS[key] for key in textboxes.keys()] + ["Default values applied successfully!"]
+
 # Build Gradio interface
 def main():
     status, user_dirs = read_user_dirs()
@@ -59,13 +81,22 @@ def main():
             inputs[key] = gr.Textbox(value=folder, label=key, interactive=True)
         
         status_output = gr.Textbox(label="Status", interactive=False)
-        update_btn = gr.Button("Apply Changes")
+        
+        with gr.Row():
+            update_btn = gr.Button("Apply Changes")
+            defaults_btn = gr.Button("Apply Defaults")
 
-        # Handle button click - pass the directory keys as additional argument
+        # Handle apply changes button
         update_btn.click(
             fn=lambda *values: apply_changes(*values, keys=list(user_dirs.keys())),
             inputs=list(inputs.values()),
             outputs=[status_output]
+        )
+
+        # Handle apply defaults button
+        defaults_btn.click(
+            fn=lambda: apply_defaults(inputs),
+            outputs=list(inputs.values()) + [status_output]
         )
 
     # Launch the app and ensure the browser opens
