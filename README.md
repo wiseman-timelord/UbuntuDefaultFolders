@@ -18,7 +18,7 @@ UbuntuDefaultFolders is a graphical tool that allows users to view and modify th
 ## Requirements 
 - I used Ubuntu 24.10 - if using other version, ensure the config file is at `~/.config/user-dirs.dirs`.
 - Python 3.x - Whatever version is shipped with your recent Ubuntu will probs work.
-- Python Requirements - All libraries are installed via option in the bash menu.
+- Python Requirements - All libraries are installed to ./VENV via option in the bash menu.
 
 ### Instructions
 - Download or clone the repository to a sensible folder.
