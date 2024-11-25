@@ -16,14 +16,14 @@ UbuntuDefaultFolders is a graphical tool that allows users to view and modify th
 
 ## Requirements 
 - I used Ubuntu 24.10 - if using other version, ensure the config file is at `~/.config/user-dirs.dirs`.
-- Python 3.x.
+- Python 3.x - All requirements are installed via option in the bash menu.
 
 ### Instructions
 - Download or clone the repository to a sensible folder.
 - Ensure the launcher executable if not already `chmod +x UbuntuDefaultFolders-Launcher.sh`.
 - Run the launcher `./UbuntuDefaultFolders-Launcher.sh`.
 - Select option 1 to install requirements (first time only) (installs to ./venv).
-- Select option 2 to run the program (it will use the venv).
+- Select option 2 to run the program (it will use the venv, and a Gradio interface will popup).
 - Edit folder paths as needed in the browser window that pops up, and click "Apply Changes".
 - Restart your system for changes to take effect.
 
